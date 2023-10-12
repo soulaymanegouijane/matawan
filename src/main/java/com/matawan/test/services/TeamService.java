@@ -27,4 +27,11 @@ public interface TeamService {
      * @return A list of teams meeting the specified criteria.
      */
     List<Team> getTeamsSortedAndByPage(int page, SorttingAttribute sorttingAttribute, SortingType sortingType);
+
+    /**
+     * performs search on the database
+     * @param keyword the keyword
+     * @return list of teams where the name or acronym contains the keyword
+     */
+    List<Team> getTeamByKeyword(String keyword);
 }

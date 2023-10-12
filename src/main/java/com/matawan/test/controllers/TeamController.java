@@ -66,4 +66,11 @@ public class TeamController {
                 .map(teamEntityToDtoMapper::apply)
                 .toList();
     }
+
+    @GetMapping("/search")
+    public List<TeamResponseDto> getTeamsByKeywordInNameOrAcronym(@RequestParam(value = "keyword", required = false) String keyword){
+        return teamService.getTeamByKeyword(keyword).stream()
+                .map(teamEntityToDtoMapper::apply)
+                .toList();
+    }
 }

@@ -10,6 +10,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * This class provides the implementation for the TeamService, managing team related operations.
@@ -52,5 +53,10 @@ public class TeamServiceImpl implements TeamService{
             });
         };
         return results.getContent();
+    }
+
+    @Override
+    public List<Team> getTeamByKeyword(String keyword) {
+        return Objects.isNull(keyword) ? teamRepository.findAll() : teamRepository.findAllByNameOrAcronymContainingIgnoreCase(keyword,keyword);
     }
 }
