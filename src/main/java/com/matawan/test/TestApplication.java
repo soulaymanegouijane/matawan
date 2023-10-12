@@ -21,6 +21,12 @@ public class TestApplication implements CommandLineRunner {
 		SpringApplication.run(TestApplication.class, args);
 	}
 
+	/**
+	 * This method is executed once the application context is loaded. It is responsible for creating test data in the database.
+	 *
+	 * @param args The command-line arguments.
+	 * @throws Exception If an exception occurs during the execution.
+	 */
 	@Override
 	public void run(String... args) throws Exception {
 		Player p1 = Player.builder()

@@ -7,6 +7,11 @@ import org.springframework.stereotype.Service;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+/**
+ * This class is responsible for mapping Team Entity objects to Team DTOs.
+ * You can use ready-to-use mappers such as ModelMapper or mapStruct
+ * I used this (functional programming because I had problems using the other mappers on Java Records
+ */
 @Service
 public class TeamEntityToDtoMapper implements Function<Team, TeamResponseDto> {
 

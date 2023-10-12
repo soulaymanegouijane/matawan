@@ -11,12 +11,22 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
+/**
+ * This class provides the implementation for the TeamService, managing team related operations.
+ */
 @Service
 public class TeamServiceImpl implements TeamService{
 
     private final TeamRepository teamRepository;
+    /**
+     * this constant represents the number of elements on each page of teams.
+     */
     private static final int PAGE_SIZE = 3;
-
+    /**
+     * Constructs a new TeamServiceImpl instance.
+     *
+     * @param teamRepository The repository for team.
+     */
     public TeamServiceImpl(final TeamRepository teamRepository) {
         this.teamRepository = teamRepository;
     }

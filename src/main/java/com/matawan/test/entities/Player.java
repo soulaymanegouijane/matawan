@@ -7,7 +7,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-
+/**
+ * This class represents the player entity.
+ */
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor

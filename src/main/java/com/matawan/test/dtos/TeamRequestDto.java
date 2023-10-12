@@ -4,6 +4,9 @@ import jakarta.validation.constraints.*;
 
 import java.util.Set;
 
+/**
+ * This record represents a DTO for creating or updating a team.
+ */
 public record TeamRequestDto(
         @NotBlank(message = "The Name is required")
         @Size(min = 3, message = "The name should be have at least 3 characters")

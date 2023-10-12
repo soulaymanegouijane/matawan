@@ -11,10 +11,17 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+/**
+ * This class serves as a controller advice for handling custom exceptions and validation errors.
+ */
 @ControllerAdvice
 public class CustomExceptionHandler {
-
+    /**
+     * Handles exceptions caused by invalid method arguments ( validation errors ), providing details about validation errors.
+     *
+     * @param ex The MethodArgumentNotValidException to handle.
+     * @return A ProblemDetail containing the HTTP status and validation error details.
+     */
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ProblemDetail handlValidationException(MethodArgumentNotValidException ex) {
         Map<String, String> details = new HashMap<>();
@@ -25,7 +32,13 @@ public class CustomExceptionHandler {
         }
         return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, details.toString());
     }
-
+    /**
+     * Handles exceptions related to a team already existing.
+     * thrown if a team already exists in the database
+     *
+     * @param ex The TeamAlreadyExistException to handle.
+     * @return A ProblemDetail containing the HTTP status and exception message.
+     */
     @ExceptionHandler(TeamAlreadyExistException.class)
     public ProblemDetail handleTeamAlreadyExistException(TeamAlreadyExistException ex) {
         return ProblemDetail.forStatusAndDetail(HttpStatus.CONFLICT, ex.getMessage());
